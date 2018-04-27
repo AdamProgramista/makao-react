@@ -1,0 +1,1 @@
+makao-react version 1.0
