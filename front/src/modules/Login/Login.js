@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
-import Input from './../Input/Input'
-import Button from './../Button/Button'
+import Input from '../../components/Input/Input'
+import Button from '../../components/Button/Button'
 
 class Login extends Component {
   render() {
