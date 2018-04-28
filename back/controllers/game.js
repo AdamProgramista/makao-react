@@ -19,7 +19,7 @@ const status = (req, res) => {
     })),
     activePlayerId: game.activePlayerId,
     cardStack: game.cardStack
-  }
+  };
   res.send(result);
 }
 

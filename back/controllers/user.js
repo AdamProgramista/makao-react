@@ -5,6 +5,6 @@ const login = (req, res) => {
   const user = new User(userLogin);
   req.session.user = user;
   res.send(user);
-}
+};
 
 module.exports = { login }

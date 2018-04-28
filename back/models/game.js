@@ -31,7 +31,7 @@ const GAME_STATUS = {
   waiting: 'waiting',
   inProgress: 'inProgress',
   finished: 'finished'
-}
+};
 
 const game = new Game();
 

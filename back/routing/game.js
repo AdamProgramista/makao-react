@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const gameController = require('../controllers/game');
 const { userAuthenticationGuard } = require('../middlewares/user-authentication-guard');
+const router = express.Router();
 
 router.use(userAuthenticationGuard);
 
