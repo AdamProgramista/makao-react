@@ -13,13 +13,13 @@ class Game {
   getCardsFromDeck(amount) {
     const cards = this.deck.slice(0, amount);
     this.deck = this.deck.slice(amount);
-    return cards
+    return cards;
   }
 
   addPlayer(player) {
-    const playerCards = this.getCardsFromDeck(5) 
+    const playerCards = this.getCardsFromDeck(5);
     this.players.push(player);
-    player.cards.push(playerCards);
+    player.cards = playerCards;
 
     if (this.activePlayerId === null) {
       this.activePlayerId = player.id;

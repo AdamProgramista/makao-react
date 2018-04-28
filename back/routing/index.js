@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/user');
-const gameController = require('../controllers/game')
+const { router: gameRouter } = require('./game');
+const { router: userRouter } = require('./user');
 
-router.post('/user/new', userController.login);
-
-router.post('/game/join', gameController.join);
+router
+  .use('/game', gameRouter)
+  .use('/user', userRouter);
 
 module.exports = { router };
