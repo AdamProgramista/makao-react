@@ -2,7 +2,7 @@ let counter = 1;
 
 class User {
   constructor(name) {
-    this.userId = counter++;
+    this.id = counter++;
     this.name = name;
   }
 }
