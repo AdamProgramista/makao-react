@@ -11,18 +11,19 @@ class Login extends Component {
     super(props);
     this.state = ({
       name: ''
-    })
+    });
   }
 
   onSetUserName = (event) => {
     const userName = event.target.value;
     this.setState({
       name: userName
-    })
+    });
   };
 
   onLogIn = () => {
     const {name} = this.state;
+    console.log(name);
     this.props.onLogIn(name);
   }
 
@@ -34,7 +35,7 @@ class Login extends Component {
           <h1>MAKAO-REACT</h1>
         </div>
         <div className='login-page__form'>
-          <Input value={name} text='Write your name...' onChange={this.onSetUserName}/>
+          <Input value={name} placeholder='Write your name...' onChange={this.onSetUserName}/>
           <Button text='JOIN' onClick={this.onLogIn}/>
         </div>
       </div>

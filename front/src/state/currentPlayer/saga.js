@@ -11,12 +11,14 @@ export default function* () {
 };
 
 function* onlogIn(action) {
-  const { userName } = action;
+  console.log(action);
+  const { payload } = action;
   try {
-    const userDetails = yield call(logIn, userName);
-    yield put(logInSuccess(userDetails));
+    const user = yield call(logIn, payload.name);
+    yield put(logInSuccess(user));
   }
   catch (error) {
+    console.log(error);
     yield put(logInFailure(`User wasn't add`));
   }
 };

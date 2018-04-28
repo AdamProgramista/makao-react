@@ -1,4 +1,4 @@
-const post = (url, body, additionalConfig = {}) => fetch(url, {
+export const post = (url, body, additionalConfig = {}) => fetch(url, {
     method: 'POST',
     ...additionalConfig,
     body: JSON.stringify(body),
@@ -8,4 +8,4 @@ const post = (url, body, additionalConfig = {}) => fetch(url, {
     }
   });
   
-const toJSON = (response) => response.json();
+export const toJSON = (response) => response.json();

@@ -11,17 +11,20 @@ export const LOG_IN_FAILURE = 'current player: log-in-failure';
 
 export const currentPlayerReducer = handleActions({
   
-  [LOG_IN_SUCCESS]: (state, { userData }) => ({
+  [LOG_IN_SUCCESS]: (state, { user }) => ({
     ...state,
-    name: userData.name,
-    id: userData.id
+    name: user.name,
+    id: user.id
   }),
 }, initialState);
 
 export const logIn = createAction(
   LOG_IN,
-  name => name
+  name => ({ name })
 );
 
-export const logInSuccess = createAction(LOG_IN_SUCCESS);
+export const logInSuccess = createAction(
+  LOG_IN_SUCCESS,
+  user => user
+);
 export const logInFailure = createAction(LOG_IN_FAILURE);
