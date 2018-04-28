@@ -16,7 +16,7 @@ function* onlogIn(action) {
     const userDetails = yield call(logIn, userName);
     yield put(logInSuccess(userDetails));
   }
-  catch {
+  catch (error) {
     yield put(logInFailure(`User wasn't add`));
   }
 };

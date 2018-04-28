@@ -39,12 +39,13 @@ export const gameReducer = handleActions({
 }, initialState);
 
 export const joinPlayerSuccess = createAction(JOIN_PLAYER_SUCCESS);
-export const joinPlayerFailure = createActions(JOIN_PLAYER_FAILURE);
-export const fetchGameDetails = createActions(FETCH_GAME_DETAILS);
+export const joinPlayerFailure = createAction(JOIN_PLAYER_FAILURE);
+export const fetchGameDetails = createAction(FETCH_GAME_DETAILS);
 export const fetchGameDetailsSuccess = createAction(
   FETCH_GAME_DETAILS_SUCCESS,
   gameDetails => gameDetails
 );
+export const fetchGameDetailsFailure = createAction(FETCH_GAME_DETAILS_FAILURE);
 export const joinPlayer = createAction(
   JOIN_PLAYER,
   gameId => gameId

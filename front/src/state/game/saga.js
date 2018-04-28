@@ -4,6 +4,7 @@ import {
   JOIN_PLAYER,
   JOIN_PLAYER_SUCCESS,
   FETCH_GAME_DETAILS,
+  fetchGameDetails,
   fetchGameDetailsSuccess,
   fetchGameDetailsFailure,
   joinPlayerSuccess,
@@ -23,7 +24,7 @@ function* onJoinPlayer(action) {
     yield call(joinPlayerToGame, gameId);
     yield put(joinPlayerSuccess());
   }
-  catch {
+  catch (error) {
     yield put(joinPlayerFailure(`Player wasn't add to game`));
   }
 };
@@ -40,7 +41,7 @@ function* onFetchGameDetails() {
     const gameDetails = yield call(fetchDetailsOfGame);
     yield put(fetchGameDetailsSuccess(gameDetails));
   }
-  catch {
+  catch (error) {
     yield put(fetchGameDetailsFailure(`Game details wasn't fetched`));
   }
 };

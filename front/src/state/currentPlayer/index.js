@@ -1,24 +1,27 @@
-import {handleActions, createAction, handleAction} from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 
-const initialState = {};
+const initialState = {
+  userName: '',
+  userId: ''
+};
 
 export const LOG_IN = 'current player: log-in';
 export const LOG_IN_SUCCESS = 'current player: log-in-success';
-export const LOG_IN_FAILURE = 'current player: log-inr-failure';
+export const LOG_IN_FAILURE = 'current player: log-in-failure';
 
-export const currentPlayerReducer = handleAction({
+export const currentPlayerReducer = handleActions({
   
   [LOG_IN_SUCCESS]: (state, { userData }) => ({
     ...state,
-    userName: userData.userName,
-    userId: userData.userId
+    name: userData.name,
+    id: userData.id
   }),
 }, initialState);
 
-export const addUser = createAction(
+export const logIn = createAction(
   LOG_IN,
-  userName => userName
+  name => name
 );
 
-export const addUserSuccess = createAction(LOG_IN_SUCCESS);
-export const addUserFailure = createAction(LOG_IN_FAILURE);
+export const logInSuccess = createAction(LOG_IN_SUCCESS);
+export const logInFailure = createAction(LOG_IN_FAILURE);

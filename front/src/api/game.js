@@ -5,5 +5,5 @@ export const joinPlayerToGame = ({gameId}) => post(
     {gameId}
 ).then(toJSON);
 
-export const fetchGameDetails = () => fetch('http://localhost:8080/game/details')
+export const fetchDetailsOfGame = () => fetch('http://localhost:8080/game/details')
   .then(toJSON);
