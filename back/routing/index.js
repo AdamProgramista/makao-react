@@ -1,7 +1,10 @@
 const express = require('express');
+const { router: gameRouter } = require('./game');
+const { router: userRouter } = require('./user');
 const router = express.Router();
-const userController = require('../controlers/user');
 
-router.post('/user', userController.login);
+router
+  .use('/game', gameRouter)
+  .use('/user', userRouter);
 
 module.exports = { router };
