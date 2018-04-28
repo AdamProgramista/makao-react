@@ -4,8 +4,8 @@ import './Button.css';
 const Button = (props) => (
   <button
     className='btn'
-    onClick={this.props.onClick}>
-    {this.props.text}
+    onClick={props.onClick}>
+    {props.text}
   </button>
 )
 
