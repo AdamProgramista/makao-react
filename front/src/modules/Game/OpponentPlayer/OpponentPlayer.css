@@ -1,0 +1,15 @@
+.game__playground__opponentplayer {
+  border: 1px solid black;
+  width: 12rem;
+  height: 6rem;
+}
+
+.game__playground__opponentplayer__name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game__playground__opponentplayer__card {
+  font-size: 2rem;
+  text-align: center;
+}
