@@ -17,7 +17,6 @@ function* onlogInToGame(action) {
     yield put(logInSuccess(user));
   }
   catch (error) {
-    console.log(error);
     yield put(logInFailure(`User wasn't add`));
   }
 };
