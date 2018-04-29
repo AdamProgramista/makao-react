@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './Game.css';
 
-const players = [{name: 'Monika'}, {name: 'Adam'}, {name: 'Mirek'}, {name: 'Yuriy'}]
+const players = [
+  { name: 'Monika' },
+  { name: 'Adam' },
+  { name: 'Mirek' },
+  { name: 'Yuriy' }
+];
 
 class GameInfo extends Component {
   render() {
@@ -11,8 +16,8 @@ class GameInfo extends Component {
           <h3>Makao-react</h3>
         </div>
         <ul className='game__info__list'>
-          {players.map(p => (
-            <li>{p.name}</li>
+          {players.map(player => (
+            <li>{player.name}</li>
           ))}
         </ul>
       </div>
