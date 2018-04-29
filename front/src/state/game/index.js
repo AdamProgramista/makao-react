@@ -9,14 +9,12 @@ const initialState = {
   joining: false
 };
 
-export const JOIN_PLAYER = 'join-player-to-game';
-export const JOIN_PLAYER_SUCCESS = 'join-player-to-game-success';
-const JOIN_PLAYER_FAILURE = 'join-player-to-game-failure';
-const START_GAME = 'start-game';
-const START_GAME_SUCCESS = 'start-game-success';
-export const FETCH_GAME_DETAILS = 'fetch-game-details';
-const FETCH_GAME_DETAILS_SUCCESS = 'fetch-game-details-success';
-const FETCH_GAME_DETAILS_FAILURE = 'fetch-game-details-failure';
+export const JOIN_PLAYER = 'game: join-to-game';
+export const JOIN_PLAYER_SUCCESS = 'game: join-to-game-success';
+const JOIN_PLAYER_FAILURE = 'game: join-to-game-failure';
+export const FETCH_GAME_DETAILS = 'game: fetch-game-details';
+const FETCH_GAME_DETAILS_SUCCESS = 'game: fetch-game-details-success';
+const FETCH_GAME_DETAILS_FAILURE = 'game: fetch-game-details-failure';
 
 export const gameReducer = handleActions({
 

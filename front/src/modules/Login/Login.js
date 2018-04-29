@@ -23,7 +23,6 @@ class Login extends Component {
 
   onLogIn = () => {
     const {name} = this.state;
-    console.log(name);
     this.props.onLogIn(name);
   }
 

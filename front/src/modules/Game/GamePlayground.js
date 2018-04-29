@@ -10,7 +10,7 @@ class GamePlayground extends Component {
   render() {
     return (
       <div className='game__playground'>
-        <Table />
+        {/*<Table />*/}
         <div class='game__playground__view'>
           {players.map(player => (
             <OpponentPlayer />

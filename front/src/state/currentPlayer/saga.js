@@ -7,11 +7,10 @@ import {
 import {logIn} from '../../api/currentPlayer';
 
 export default function* () {
-  yield takeEvery(LOG_IN, onlogIn);
+  yield takeEvery(LOG_IN, onlogInToGame);
 };
 
-function* onlogIn(action) {
-  console.log(action);
+function* onlogInToGame(action) {
   const { payload } = action;
   try {
     const user = yield call(logIn, payload.name);

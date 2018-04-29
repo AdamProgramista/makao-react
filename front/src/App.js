@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Login />
-        <Game />
+        {/*<Game/>*/}
       </div>
     );
   }
