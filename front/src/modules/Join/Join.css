@@ -1,0 +1,25 @@
+.join-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .join-page__header {
+    margin-bottom: 30%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .join-page h1 {
+    font-size: 3rem;
+    letter-spacing: 0.4rem;
+    margin: 1rem 0;
+    color: #bdc3c7;
+  }
+  
+  .join-page__form {
+    display: flex;
+  }
+  

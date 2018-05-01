@@ -15,7 +15,8 @@ export const currentPlayerReducer = handleActions({
     ...state,
     name: payload.name,
     id: payload.id
-  }),
+  })
+  
 }, initialState);
 
 export const logIn = createAction(

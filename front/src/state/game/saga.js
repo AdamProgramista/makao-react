@@ -19,9 +19,9 @@ export default function* () {
 };
 
 function* onJoinPlayer(action) {
-  const { gameId } = action;
+  const { payload } = action;
   try {
-    yield call(joinPlayerToGame, gameId);
+    yield call(joinPlayerToGame, payload);
     yield put(joinPlayerSuccess());
   }
   catch (error) {

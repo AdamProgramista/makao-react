@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './OwnPlayer.css';
 import Card from './Card/Card'
 
 const name = 'Adam';
 const cards = [1,2,3,4,5];
 
-class OwnPlayer extends Component {
+class OwnPlayer extends PureComponent {
   render() {
     return (
       <div className='game__playground__ownplayer'>

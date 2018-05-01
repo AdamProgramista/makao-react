@@ -4,7 +4,7 @@ import {
   logInSuccess,
   logInFailure,
 } from './index.js';
-import {logIn} from '../../api/currentPlayer';
+import { logIn } from '../../api/currentPlayer';
 
 export default function* () {
   yield takeEvery(LOG_IN, onlogInToGame);
@@ -17,6 +17,6 @@ function* onlogInToGame(action) {
     yield put(logInSuccess(user));
   }
   catch (error) {
-    yield put(logInFailure(`User wasn't add`));
+    yield put(logInFailure(`User wasn't added`));
   }
 };

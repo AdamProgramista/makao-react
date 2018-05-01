@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Login.css';
 import { connect } from 'react-redux';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import {logIn} from '../../state/currentPlayer';
 
-class Login extends Component {
+class Login extends PureComponent {
 
   constructor(props){
     super(props);
@@ -22,7 +22,7 @@ class Login extends Component {
   };
 
   onLogIn = () => {
-    const {name} = this.state;
+    const { name } = this.state;
     this.props.onLogIn(name);
   }
 
@@ -35,14 +35,14 @@ class Login extends Component {
         </div>
         <div className='login-page__form'>
           <Input value={name} placeholder='Write your name...' onChange={this.onSetUserName}/>
-          <Button text='JOIN' onClick={this.onLogIn}/>
+          <Button text='LOG IN' onClick={this.onLogIn}/>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (dispatch) => ({
+const mapStateToProps = (state) => ({
 
 });
 

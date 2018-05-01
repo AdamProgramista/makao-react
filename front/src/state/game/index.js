@@ -46,5 +46,5 @@ export const fetchGameDetailsSuccess = createAction(
 export const fetchGameDetailsFailure = createAction(FETCH_GAME_DETAILS_FAILURE);
 export const joinPlayer = createAction(
   JOIN_PLAYER,
-  gameId => gameId
+  user => user
 );
