@@ -1,19 +1,19 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import './Game.css';
 import OwnPlayer from './OwnPlayer/OwnPlayer';
 import OpponentPlayer from './OpponentPlayer/OpponentPlayer';
 import Table from './Table/Table'
 
-const players = [{name: 'Monika'}, {name: 'Adam'}, {name: 'Mirek'}, {name: 'Yuriy'}]
-
 class GamePlayground extends PureComponent {
   render() {
+    const { players } = this.props;
     return (
       <div className='game__playground'>
         <Table />
-        <div class='game__playground__view'>
+        <div className='game__playground__view'>
           {players.map(player => (
-            <OpponentPlayer />
+            <OpponentPlayer name={player.name}/>
           ))}
         </div>
         <OwnPlayer />
@@ -22,4 +22,12 @@ class GamePlayground extends PureComponent {
   }
 }
 
-export default GamePlayground;
+const mapStateToProps = (state) => ({
+  players: state.game.players
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamePlayground);

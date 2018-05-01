@@ -5,7 +5,7 @@ const initialState = {
   players: [],
   activePlayer: '',
   currentCard: '',
-  deckCards: '',
+  cardStack: '',
   joining: false
 };
 
@@ -29,9 +29,12 @@ export const gameReducer = handleActions({
     joining: false
   }),
 
-  [FETCH_GAME_DETAILS_SUCCESS]: (state, {gameDetails}) => ({
+  [FETCH_GAME_DETAILS_SUCCESS]: (state, {payload}) => ({
     ...state,
-    ...gameDetails
+    players: payload.players,
+    status: payload.status,
+    activePlayer: payload.activePlayerId,
+    cardStack: payload.cardStack
   })
  
 }, initialState);

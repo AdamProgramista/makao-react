@@ -11,7 +11,7 @@ class App extends PureComponent {
     return (
       <div className="App">
         {!user.name && (<Login />)}
-        {user.name &&(<Join user={user}/>)}
+        {(user.name && players.length === 0) &&(<Join user={user}/>)}
         {players.length > 0 && (<Game/>)}
       </div>
     );

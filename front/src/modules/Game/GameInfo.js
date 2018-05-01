@@ -12,7 +12,7 @@ class GameInfo extends PureComponent {
         </div>
         {players && (<ul className='game__info__list'>
           {players.map(player => (
-            <li>{player.name}</li>
+            <li key={player.name}>{player.name}</li>
           ))}
         </ul>)}
       </div>
