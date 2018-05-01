@@ -25,7 +25,7 @@ function* onJoinPlayer(action) {
     yield put(joinPlayerSuccess());
   }
   catch (error) {
-    yield put(joinPlayerFailure(`Player wasn't add to game`));
+    yield put(joinPlayerFailure('Player wasn\'t added to game'));
   }
 };
 
@@ -42,6 +42,6 @@ function* onFetchGameDetails() {
     yield put(fetchGameDetailsSuccess(gameDetails));
   }
   catch (error) {
-    yield put(fetchGameDetailsFailure(`Game details wasn't fetched`));
+    yield put(fetchGameDetailsFailure('Game details wasn\'t fetched'));
   }
 };

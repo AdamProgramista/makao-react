@@ -17,6 +17,6 @@ function* onlogInToGame(action) {
     yield put(logInSuccess(user));
   }
   catch (error) {
-    yield put(logInFailure(`User wasn't added`));
+    yield put(logInFailure('User wasn\'t added to platform'));
   }
 };
