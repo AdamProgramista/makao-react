@@ -3,7 +3,7 @@ import './Login.css';
 import { connect } from 'react-redux';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import {logIn} from '../../state/currentPlayer';
+import { logIn } from '../../state/currentPlayer';
 
 class Login extends PureComponent {
 
