@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import './OpponentPlayer.css';
 
-const name = 'Adam';
 const cards = [1,2,3,4,5,6,7];
 
-class OpponentPlayer extends Component {
+class OpponentPlayer extends PureComponent {
   render() {
+    const { name } = this.props;
     return (
       <div className='game__playground__opponentplayer'>
         <div className='game__playground__opponentplayer__name'>
@@ -19,4 +20,12 @@ class OpponentPlayer extends Component {
   }
 }
 
-export default OpponentPlayer;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpponentPlayer);

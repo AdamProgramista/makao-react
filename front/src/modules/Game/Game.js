@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import './Game.css';
 import GameInfo from './GameInfo';
 import GamePlayground from './GamePlayground';
 
-class Game extends Component {
+class Game extends PureComponent {
   render() {
     return (
       <div className='game'>
@@ -14,4 +15,12 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
