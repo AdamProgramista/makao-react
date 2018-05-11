@@ -15,6 +15,9 @@ const JOIN_PLAYER_FAILURE = 'game: join-to-game-failure';
 export const FETCH_GAME_DETAILS = 'game: fetch-game-details';
 const FETCH_GAME_DETAILS_SUCCESS = 'game: fetch-game-details-success';
 const FETCH_GAME_DETAILS_FAILURE = 'game: fetch-game-details-failure';
+export const START_GAME = 'game: start-game';
+const START_GAME_SUCCESS = 'game: start-game-success';
+const START_GAME_FAILURE = 'game: start-game-failure';
 
 export const gameReducer = handleActions({
 
@@ -51,3 +54,7 @@ export const joinPlayer = createAction(
   JOIN_PLAYER,
   user => user
 );
+
+export const startGame = createAction(START_GAME);
+export const startGameSuccess = createAction(START_GAME_SUCCESS);
+export const startGameFailure = createAction(START_GAME_FAILURE);

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import './Join.css';
+import './style.css';
 import { connect } from 'react-redux';
-import Button from '../../components/Button/Button';
+import Button from '../../components/button';
 import { joinPlayer } from '../../state/game/index';
 
 class Join extends PureComponent {

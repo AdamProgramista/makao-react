@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import './Game.css';
-import OwnPlayer from './OwnPlayer/OwnPlayer';
-import OpponentPlayer from './OpponentPlayer/OpponentPlayer';
-import Table from './Table/Table'
+import './style.css';
+import OwnPlayer from './ownPlayer';
+import StartGame from './startGame';
+import OpponentPlayer from './opponentPlayer';
+import Table from './table'
 
 class GamePlayground extends PureComponent {
   render() {
-    const { players } = this.props;
+    const { players, status } = this.props;
     return (
       <div className='game__playground'>
         <Table />
@@ -16,6 +17,9 @@ class GamePlayground extends PureComponent {
             <OpponentPlayer name={player.name}/>
           ))}
         </div>
+        {(status === "waiting") && (
+          <StartGame/>
+        )}
         <OwnPlayer />
       </div>
     );
@@ -23,7 +27,8 @@ class GamePlayground extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  players: state.game.players
+  players: state.game.players,
+  status: state.game.status
 });
 
 const mapDispatchToProps = (dispatch) => ({

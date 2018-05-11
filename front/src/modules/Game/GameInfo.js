@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import {connect} from 'react-redux';
-import './Game.css';
+import { connect } from 'react-redux';
+import './style.css';
 
 class GameInfo extends PureComponent {
   render() {

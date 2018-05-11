@@ -8,7 +8,8 @@ import {
   fetchGameDetailsSuccess,
   fetchGameDetailsFailure,
   joinPlayerSuccess,
-  joinPlayerFailure
+  joinPlayerFailure,
+  START_GAME
 } from './index.js';
 import { joinPlayerToGame, fetchDetailsOfGame } from '../../api/game.js';
 
@@ -16,6 +17,7 @@ export default function* () {
   yield takeEvery(JOIN_PLAYER, onJoinPlayer);
   yield takeLatest(JOIN_PLAYER_SUCCESS, onGetGameDetails);
   yield takeLatest(FETCH_GAME_DETAILS, onFetchGameDetails);
+  yield takeEvery(START_GAME, onStartGame);
 };
 
 function* onJoinPlayer(action) {
@@ -43,5 +45,14 @@ function* onFetchGameDetails() {
   }
   catch (error) {
     yield put(fetchGameDetailsFailure('Game details wasn\'t fetched'));
+  }
+};
+
+function* onStartGame() {
+  try {
+    console.log('we\'re waiting for backend part');
+  }
+  catch (error){
+    console.log('sth was wrong');
   }
 };
