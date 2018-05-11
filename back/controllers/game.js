@@ -28,6 +28,7 @@ const putCard = (req, res) => {
   const playerId = req.session.user.id
   const card = req.body.card;
   game.playCard(playerId, card);
+  res.send();
 }
 
 const pullCard = (req, res) => {
