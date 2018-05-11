@@ -6,9 +6,10 @@ const { router } = require('./routing/index');
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  }));
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
+
 app.use(bodyParser.json());
 app.use(session({ secret: 'makaolingus', cookie: { maxAge: 60000 } }));
 app.use(router);

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import './style.css';
-import OwnPlayer from './ownPlayer';
-import StartGame from './startGame';
-import OpponentPlayer from './opponentPlayer';
+import OwnPlayer from './own-player';
+import StartGame from './start-game';
+import OpponentPlayer from './opponent-player';
 import Table from './table'
 
 class GamePlayground extends PureComponent {

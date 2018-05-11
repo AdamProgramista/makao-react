@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import './style.css';
 import { connect } from 'react-redux';
 import Button from '../../../components/button';
-import { startGame } from '../../../state/game/index';
+import { startGame } from '../../../state/game';
 
 class StartGame extends PureComponent {
   

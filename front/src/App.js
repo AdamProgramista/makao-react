@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Login from './modules/login';
-import Game from './modules/Game/Game';
+import Game from './modules/game/game';
 import Join from './modules/join';
 
 class App extends PureComponent {
