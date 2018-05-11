@@ -1,3 +1,4 @@
+const { isEqual } = require('lodash');
 const { createDeck } = require('../utils/deck');
 const { shuffle } = require('../utils/index');
 
@@ -7,7 +8,12 @@ class Game {
     this.players = [];
     this.deck = shuffle(createDeck());
     this.activePlayerId = null;
-    this.cardStack = null;
+    this.cardStack = [];
+  }
+
+  getPlayerById(playerId) {
+    const player = this.players.find(player => player.id === playerId);
+    return player;
   }
 
   getCardsFromDeck(amount) {
@@ -24,6 +30,16 @@ class Game {
     if (this.activePlayerId === null) {
       this.activePlayerId = player.id;
     }
+  }
+
+
+  playCard(playerId, card) {
+    const player = this.players.find(player => player.id === playerId);
+    player.cards = player.cards.filter(
+      (playerCard) => !isEqual(playerCard, card)
+    );
+    this.cardStack.push(card);
+    this.status = GAME_STATUS.inProgress;
   }
 }
 

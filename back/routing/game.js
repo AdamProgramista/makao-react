@@ -7,5 +7,6 @@ router.use(userAuthenticationGuard);
 
 router.get('/', gameController.status);
 router.post('/join', gameController.join);
+router.post('/putcard', gameController.putCard);
 
 module.exports = { router };
