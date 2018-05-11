@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import './OwnPlayer.css';
+import './style.css';
 import Card from './Card/Card'
 
 const cards = [1,2,3,4,5];

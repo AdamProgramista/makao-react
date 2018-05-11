@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import './Game.css';
+import './style.css';
 import GameInfo from './GameInfo';
 import GamePlayground from './GamePlayground';
 
