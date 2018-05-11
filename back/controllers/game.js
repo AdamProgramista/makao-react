@@ -5,7 +5,7 @@ const join = (req, res) => {
   const user = req.session.user;
   const player = new Player(user);
   game.addPlayer(player);
-  res.status(200).send({game, player});
+  res.status(200).send({player});
 };
 
 const status = (req, res) => {
