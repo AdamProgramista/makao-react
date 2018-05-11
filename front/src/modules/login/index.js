@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import './Login.css';
 import { connect } from 'react-redux';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
-import { logIn } from '../../state/currentPlayer';
+import './style.css';
+import Input from '../../components/input';
+import Button from '../../components/button';
+import { logIn } from '../../state/current-player';
 
 class Login extends PureComponent {
 
