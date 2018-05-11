@@ -34,4 +34,4 @@ const pullCard = (req, res) => {
 
 }
 
-module.exports = { join, status };
+module.exports = { join, status, putCard };
