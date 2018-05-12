@@ -11,7 +11,7 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
-app.use(session({ secret: 'makaolingus' }));
+app.use(session({ secret: 'makaolingus', maxAge: 3600000 }));
 app.use(router);
 
 app.listen(8080, 'localhost', () => console.log('Shuffeling cards... get ready'));
