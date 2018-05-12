@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import './style.css';
 import { connect } from 'react-redux';
 import Button from '../../../components/button';
-import { startGame } from '../../../state/game';
+
 
 class StartGame extends PureComponent {
   
@@ -13,7 +13,7 @@ class StartGame extends PureComponent {
   render() {
     return (
       <div className='start-game__form'>
-        <Button text='START GAME' onClick={this.onStartGame} />
+      <Button text='START GAME'  />
       </div>
     );
   }
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startGame: () => dispatch(startGame())
+  // startGame: () => dispatch(startGame())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartGame);

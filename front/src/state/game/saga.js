@@ -4,6 +4,7 @@ import {
   JOIN_PLAYER,
   JOIN_PLAYER_SUCCESS,
   FETCH_GAME_DETAILS,
+  PUT_CARD,
   fetchGameDetails,
   fetchGameDetailsSuccess,
   fetchGameDetailsFailure,
@@ -17,7 +18,7 @@ export default function* () {
   yield takeEvery(JOIN_PLAYER, onJoinPlayer);
   yield takeLatest(JOIN_PLAYER_SUCCESS, onGetGameDetails);
   yield takeLatest(FETCH_GAME_DETAILS, onFetchGameDetails);
-  yield takeEvery(START_GAME, onStartGame);
+  yield takeEvery(PUT_CARD, onPutCard);
 };
 
 function* onJoinPlayer(action) {
@@ -48,9 +49,9 @@ function* onFetchGameDetails() {
   }
 };
 
-function* onStartGame() {
+function* onPutCard() {
   try {
-    console.log('we\'re waiting for backend part');
+    ;
   }
   catch (error){
     console.log('sth was wrong');

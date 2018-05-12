@@ -10,3 +10,11 @@ export const post = (url, body, additionalConfig = {}) => fetch(url, {
 });
 
 export const toJSON = (response) => response.json();
+
+export const get = (url) => fetch(url, {
+  method: 'GET',
+  'credentials': 'include',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});

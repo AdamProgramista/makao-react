@@ -24,7 +24,8 @@ class OwnPlayer extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  name: state.currentPlayer.name
+  name: state.currentPlayer.name,
+  cards: state.game
 });
 
 const mapDispatchToProps = (dispatch) => ({
