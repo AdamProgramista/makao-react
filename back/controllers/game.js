@@ -15,6 +15,10 @@ const join = (req, res) => {
 
 const status = (req, res) => {
   const playerId = req.session.user.id;
+  if (game.players.length <= 0) {
+    res.status(401).send("Please login first");
+    return;
+  }
   const result = {
     status: game.status,
     players: game.players.map((player) => ({
@@ -32,6 +36,10 @@ const status = (req, res) => {
 const putCard = (req, res) => {
   const playerId = req.session.user.id;
   const card = req.body.card;
+  if (!game.validatePlayerTurn(playerId, card)) {
+    res.status(403).send("Invalid turn");
+    return;
+  }
   game.putCard(playerId, card);
   res.send();
 }
