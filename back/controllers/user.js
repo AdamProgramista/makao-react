@@ -1,10 +1,10 @@
 const { User } = require('../models/user')
 
 const login = (req, res) => {
-  // if (req.session.user) {
-  //   res.send(req.session.user);
-  //   return;
-  // }
+  if (req.session.user) {
+    res.send(req.session.user);
+    return;
+  }
   const userLogin = req.body.name;
   const user = new User(userLogin);
   req.session.user = user;
