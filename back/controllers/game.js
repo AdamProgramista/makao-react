@@ -25,14 +25,16 @@ const status = (req, res) => {
 }
 
 const putCard = (req, res) => {
-  const playerId = req.session.user.id
+  const playerId = req.session.user.id;
   const card = req.body.card;
-  game.playCard(playerId, card);
+  game.putCard(playerId, card);
   res.send();
 }
 
 const pullCard = (req, res) => {
-
+  const playerId = req.session.user.id;
+  game.pullCard(playerId);
+  res.send();
 }
 
-module.exports = { join, status, putCard };
+module.exports = { join, status, putCard, pullCard };
