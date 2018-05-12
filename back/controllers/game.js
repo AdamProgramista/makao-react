@@ -9,7 +9,7 @@ const join = (req, res) => {
 };
 
 const status = (req, res) => {
-  const player = req.session.user;
+  const playerId = req.session.user.id;
   const result = {
     status: game.status,
     players: game.players.map((player) => ({
@@ -18,9 +18,21 @@ const status = (req, res) => {
       cardsCount: player.cards.length
     })),
     activePlayerId: game.activePlayerId,
-    cardStack: game.cardStack
+    cardStack: game.cardStack,
+    playerCards: game.getPlayerById(playerId).cards
   };
   res.send(result);
 }
 
-module.exports = { join, status };
+const putCard = (req, res) => {
+  const playerId = req.session.user.id
+  const card = req.body.card;
+  game.playCard(playerId, card);
+  res.send();
+}
+
+const pullCard = (req, res) => {
+
+}
+
+module.exports = { join, status, putCard };
