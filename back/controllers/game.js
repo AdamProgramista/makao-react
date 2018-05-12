@@ -34,7 +34,7 @@ const putCard = (req, res) => {
 const pullCard = (req, res) => {
   const playerId = req.session.user.id;
   game.pullCard(playerId);
-  res.send()
+  res.send();
 }
 
 module.exports = { join, status, putCard, pullCard };

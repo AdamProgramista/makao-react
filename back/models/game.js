@@ -42,8 +42,8 @@ class Game {
 
   pullCard(playerId) {
     const player = this.getPlayerById(playerId);
-    const card = this.getCardsFromDeck(1);
-    player.cards.push(card[0]);
+    const card = this.getCardsFromDeck(1)[0];
+    player.cards.push(card);
     this.setNextPlayer();
     this.status = GAME_STATUS.inProgress;
   }
