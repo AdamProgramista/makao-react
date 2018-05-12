@@ -3,9 +3,9 @@ import './style.css';
 
 class Card extends PureComponent {
   render() {
-    const { color, figure } = this.props;
+    const { color, figure, onClick } = this.props;
     return (
-    <div className='card'>
+    <div className='card' onClick={onClick}>
       <div className='card__figure'>
        {figure}
       </div>

@@ -56,6 +56,9 @@ export const joinPlayer = createAction(
   user => user
 );
 
-export const putCard = createAction(PUT_CARD);
+export const putCard = createAction(
+  PUT_CARD,
+  card => card
+);
 export const putCardSuccess = createAction(PUT_CARD_SUCCESS);
 export const putCardFailure = createAction(PUT_CARD_FAILURE);

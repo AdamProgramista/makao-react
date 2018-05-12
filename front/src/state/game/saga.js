@@ -10,9 +10,9 @@ import {
   fetchGameDetailsFailure,
   joinPlayerSuccess,
   joinPlayerFailure,
-  START_GAME
+  putCardSuccess
 } from './index.js';
-import { joinPlayerToGame, fetchDetailsOfGame } from '../../api/game.js';
+import * as gameApi from '../../api/game.js';
 
 export default function* () {
   yield takeEvery(JOIN_PLAYER, onJoinPlayer);
@@ -24,7 +24,7 @@ export default function* () {
 function* onJoinPlayer(action) {
   const { payload } = action;
   try {
-    yield call(joinPlayerToGame, payload);
+    yield call(gameApi.joinPlayerToGame, payload);
     yield put(joinPlayerSuccess());
   }
   catch (error) {
@@ -41,7 +41,7 @@ function* onGetGameDetails() {
 
 function* onFetchGameDetails() {
   try {
-    const gameDetails = yield call(fetchDetailsOfGame);
+    const gameDetails = yield call(gameApi.fetchDetailsOfGame);
     yield put(fetchGameDetailsSuccess(gameDetails));
   }
   catch (error) {
@@ -49,11 +49,11 @@ function* onFetchGameDetails() {
   }
 };
 
-function* onPutCard() {
+function* onPutCard(action) {
+  const { payload } = action;
   try {
-    ;
-  }
-  catch (error){
-    console.log('sth was wrong');
+    yield call(gameApi.putCard, payload);
+  } catch (error){
+
   }
 };

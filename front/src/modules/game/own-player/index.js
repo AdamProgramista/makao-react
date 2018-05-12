@@ -2,20 +2,24 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import './style.css';
 import Card from './card'
-
-const cards = [1,2,3,4,5];
+import { putCard } from '../../../state/game';
 
 class OwnPlayer extends PureComponent {
+
   render() {
-    const { name } = this.props;
+    const { name, cards, onPutCard } = this.props;
     return (
       <div className='game__playground__ownplayer'>
         <div className='game__playground__ownplayer__name'>
           {name}
         </div>
         <div className='game__playground__ownplayer__cards'>
-          {cards.map(card => (
-            <Card key={card} color='Hearts' figure='2'/>
+          {cards.map((card, index) => (
+            <Card
+              key={index}
+              color={card.color}
+              figure={card.figure}
+              onClick={() => onPutCard(card)}/>
           ))}
         </div>
       </div>
@@ -25,11 +29,11 @@ class OwnPlayer extends PureComponent {
 
 const mapStateToProps = (state) => ({
   name: state.currentPlayer.name,
-  cards: state.game
+  cards: state.game.playerCards
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  
-});
+const mapDispatchToProps = {
+  onPutCard: putCard
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(OwnPlayer);
