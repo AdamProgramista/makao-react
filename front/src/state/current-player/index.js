@@ -5,6 +5,7 @@ const initialState = {
   id: ''
 };
 
+export const GET_SESSION_USER = 'current player: get-session-user';
 export const LOG_IN = 'current player: log-in';
 export const LOG_IN_SUCCESS = 'current player: log-in-success';
 export const LOG_IN_FAILURE = 'current player: log-in-failure';
@@ -30,3 +31,4 @@ export const logInSuccess = createAction(
 );
 
 export const logInFailure = createAction(LOG_IN_FAILURE);
+export const getSessionUser = createAction(GET_SESSION_USER);

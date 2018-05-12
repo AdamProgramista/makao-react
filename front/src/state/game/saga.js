@@ -4,26 +4,27 @@ import {
   JOIN_PLAYER,
   JOIN_PLAYER_SUCCESS,
   FETCH_GAME_DETAILS,
+  PUT_CARD,
   fetchGameDetails,
   fetchGameDetailsSuccess,
   fetchGameDetailsFailure,
   joinPlayerSuccess,
   joinPlayerFailure,
-  START_GAME
+  putCardSuccess
 } from './index.js';
-import { joinPlayerToGame, fetchDetailsOfGame } from '../../api/game.js';
+import * as gameApi from '../../api/game.js';
 
 export default function* () {
   yield takeEvery(JOIN_PLAYER, onJoinPlayer);
   yield takeLatest(JOIN_PLAYER_SUCCESS, onGetGameDetails);
   yield takeLatest(FETCH_GAME_DETAILS, onFetchGameDetails);
-  yield takeEvery(START_GAME, onStartGame);
+  yield takeEvery(PUT_CARD, onPutCard);
 };
 
 function* onJoinPlayer(action) {
   const { payload } = action;
   try {
-    yield call(joinPlayerToGame, payload);
+    yield call(gameApi.joinPlayerToGame, payload);
     yield put(joinPlayerSuccess());
   }
   catch (error) {
@@ -40,7 +41,7 @@ function* onGetGameDetails() {
 
 function* onFetchGameDetails() {
   try {
-    const gameDetails = yield call(fetchDetailsOfGame);
+    const gameDetails = yield call(gameApi.fetchDetailsOfGame);
     yield put(fetchGameDetailsSuccess(gameDetails));
   }
   catch (error) {
@@ -48,11 +49,11 @@ function* onFetchGameDetails() {
   }
 };
 
-function* onStartGame() {
+function* onPutCard(action) {
+  const { payload } = action;
   try {
-    console.log('we\'re waiting for backend part');
-  }
-  catch (error){
-    console.log('sth was wrong');
+    yield call(gameApi.putCard, payload);
+  } catch (error){
+
   }
 };

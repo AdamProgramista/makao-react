@@ -14,11 +14,13 @@ class GamePlayground extends PureComponent {
         <Table />
         <div className='game__playground__view'>
           {players.map(player => (
-            <OpponentPlayer name={player.name}/>
+            <OpponentPlayer
+              key={player.id}
+              name={player.name} />
           ))}
         </div>
         {(status === "waiting") && (
-          <StartGame/>
+          <StartGame />
         )}
         <OwnPlayer />
       </div>

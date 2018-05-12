@@ -3,9 +3,14 @@ const { game } = require('../models/game');
 
 const join = (req, res) => {
   const user = req.session.user;
+  const existingPlayer = game.getPlayerById(user.id);
+  if (existingPlayer) {
+    res.send({player: existingPlayer});
+    return;
+  }
   const player = new Player(user);
   game.addPlayer(player);
-  res.status(200).send({player});
+  res.send({player});
 };
 
 const status = (req, res) => {

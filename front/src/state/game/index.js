@@ -15,9 +15,9 @@ const JOIN_PLAYER_FAILURE = 'game: join-to-game-failure';
 export const FETCH_GAME_DETAILS = 'game: fetch-game-details';
 const FETCH_GAME_DETAILS_SUCCESS = 'game: fetch-game-details-success';
 const FETCH_GAME_DETAILS_FAILURE = 'game: fetch-game-details-failure';
-export const START_GAME = 'game: start-game';
-const START_GAME_SUCCESS = 'game: start-game-success';
-const START_GAME_FAILURE = 'game: start-game-failure';
+export const PUT_CARD = 'game: put-card';
+const PUT_CARD_SUCCESS = 'game: put-card-success';
+const PUT_CARD_FAILURE = 'game: put-card-failure';
 
 export const gameReducer = handleActions({
 
@@ -37,9 +37,10 @@ export const gameReducer = handleActions({
     players: payload.players,
     status: payload.status,
     activePlayer: payload.activePlayerId,
-    cardStack: payload.cardStack
+    cardStack: payload.cardStack,
+    playerCards: payload.playerCards
   })
- 
+
 }, initialState);
 
 export const joinPlayerSuccess = createAction(JOIN_PLAYER_SUCCESS);
@@ -55,6 +56,9 @@ export const joinPlayer = createAction(
   user => user
 );
 
-export const startGame = createAction(START_GAME);
-export const startGameSuccess = createAction(START_GAME_SUCCESS);
-export const startGameFailure = createAction(START_GAME_FAILURE);
+export const putCard = createAction(
+  PUT_CARD,
+  card => card
+);
+export const putCardSuccess = createAction(PUT_CARD_SUCCESS);
+export const putCardFailure = createAction(PUT_CARD_FAILURE);
