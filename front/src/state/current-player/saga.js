@@ -4,7 +4,7 @@ import {
   logInSuccess,
   logInFailure,
 } from './index.js';
-import { logIn } from '../../api/currentPlayer';
+import { logIn } from '../../api/current-player';
 
 export default function* () {
   yield takeEvery(LOG_IN, onlogInToGame);

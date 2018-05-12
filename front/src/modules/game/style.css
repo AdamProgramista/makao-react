@@ -1,0 +1,44 @@
+.game {
+  display: flex;
+  height: 100%;
+}
+
+.game__playground {
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.game__playground__view {
+  height: 80%;
+}
+
+.game__info {
+  width: 20%;
+}
+
+.game__info__header h3 {
+  font-size: 2rem;
+  letter-spacing: 0.4rem;
+  margin: 2rem 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.game__info__list {
+  background-color: rgba(236, 240, 241, 0.3);
+  margin: 0.5rem;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.game__info__list li {
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  transition: all 0.2s;
+}
+
+.game__info__list li:hover {
+  background-color: rgba(236, 240, 241, 0.4);
+}
+
