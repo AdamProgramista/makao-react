@@ -22,6 +22,14 @@ class Game {
     return cards;
   }
 
+  setNextPlayer() {
+    const activePlayerIndex = this.players.findIndex((player) => {
+      return player.id === this.activePlayerId;
+    })
+    const nextPlayerIndex = (activePlayerIndex + 1) % this.players.length;
+    this.activePlayerId = this.players[nextPlayerIndex].id;
+  }
+
   addPlayer(player) {
     const playerCards = this.getCardsFromDeck(5);
     this.players.push(player);
@@ -32,13 +40,21 @@ class Game {
     }
   }
 
+  pullCard(playerId) {
+    const player = this.getPlayerById(playerId);
+    const card = this.getCardsFromDeck(1);
+    player.cards.push(card[0]);
+    this.setNextPlayer();
+    this.status = GAME_STATUS.inProgress;
+  }
 
-  playCard(playerId, card) {
+  putCard(playerId, card) {
     const player = this.players.find(player => player.id === playerId);
     player.cards = player.cards.filter(
       (playerCard) => !isEqual(playerCard, card)
     );
     this.cardStack.push(card);
+    this.setNextPlayer();
     this.status = GAME_STATUS.inProgress;
   }
 }
