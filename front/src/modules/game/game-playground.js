@@ -13,9 +13,7 @@ class GamePlayground extends PureComponent {
       <div className='game__playground'>
         <Table />
         <div className='game__playground__view'>
-          {players.map(player => (
-            <OpponentPlayer name={player.name}/>
-          ))}
+
         </div>
         {(status === "waiting") && (
           <StartGame/>

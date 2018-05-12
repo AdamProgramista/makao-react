@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import './style.css';
+import OpponentPlayer from '../opponent-player';
+import { FaUser } from 'react-icons/lib/fa';
 
 class Table extends PureComponent {
 
@@ -19,17 +21,19 @@ class Table extends PureComponent {
                 const x = Math.cos(degrees * Math.PI / 180) / 2;
                 const y = Math.sin(degrees * Math.PI / 180) / 2;
                 return (
-                  <div key={index} style={{
-                    position: 'absolute',
-                    width: 50,
-                    height: 50,
-                    left: Math.floor(x * 100) + 50 + '%',
-                    top: Math.floor(y * 100) + 50 + '%',
-                    backgroundColor: 'red',
-                    borderRadius: '50%',
-                    transform: 'translateX(-50%) translateY(-50%)'
-                  }
-                  } />
+                  <div>
+                    {/* bad map's place, change it please */}
+                    {players.map(player => (
+                      <div key={index} className='game__playground__table__opponent' style={{
+                        left: Math.floor(x * 130) + 50 + '%',
+                        top: Math.floor(y * 130) + 50 + '%',
+                        transform: `translate(-50%, -50%) rotate(${degrees-90}deg)`
+                      }}>
+                        <FaUser />
+                        <OpponentPlayer name={player.name} cardsCount={player.cardsCount}/>
+                      </div>
+                    ))}
+                  </div>
                 );
               })
             }
