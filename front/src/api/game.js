@@ -12,3 +12,7 @@ export const putCard = (card) => post(
   'http://localhost:8080/game/put-card',
   { card }
 ).then(toJSON);
+
+export const pullCard = () => post(
+  'http://localhost:8080/game/pull-card'
+).then(toJSON);

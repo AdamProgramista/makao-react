@@ -18,6 +18,9 @@ const FETCH_GAME_DETAILS_FAILURE = 'game: fetch-game-details-failure';
 export const PUT_CARD = 'game: put-card';
 const PUT_CARD_SUCCESS = 'game: put-card-success';
 const PUT_CARD_FAILURE = 'game: put-card-failure';
+export const PULL_CARD = 'game: pull-card';
+const PULL_CARD_SUCCESS = 'game: pull-card-success';
+const PULL_CARD_FAILURE = 'game: pull-card-failure';
 
 export const gameReducer = handleActions({
 
@@ -62,3 +65,6 @@ export const putCard = createAction(
 );
 export const putCardSuccess = createAction(PUT_CARD_SUCCESS);
 export const putCardFailure = createAction(PUT_CARD_FAILURE);
+export const pullCard = createAction(PULL_CARD);
+export const pullCardSuccess = createAction(PULL_CARD_SUCCESS);
+export const pullCardFailure = createAction(PULL_CARD_FAILURE);
