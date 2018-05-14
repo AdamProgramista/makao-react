@@ -8,6 +8,10 @@ const join = (req, res) => {
     res.send({player: existingPlayer});
     return;
   }
+  if (game.status === 'inProgress') {
+    res.send('Could not join, game in progress');
+    return;
+  }
   const player = new Player(user);
   game.addPlayer(player);
   res.send({player});
@@ -15,10 +19,6 @@ const join = (req, res) => {
 
 const status = (req, res) => {
   const playerId = req.session.user.id;
-  if (game.players.length <= 0) {
-    res.status(401).send("Please login first");
-    return;
-  }
   const result = {
     status: game.status,
     players: game.players.map((player) => ({
@@ -46,6 +46,10 @@ const putCard = (req, res) => {
 
 const pullCard = (req, res) => {
   const playerId = req.session.user.id;
+  if (!game.validatePlayerTurn(playerId)) {
+    res.status(403).send("Invalid turn");
+    return;
+  }
   game.pullCard(playerId);
   res.send();
 }

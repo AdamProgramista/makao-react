@@ -30,23 +30,21 @@ class Game {
     this.activePlayerId = this.players[nextPlayerIndex].id;
   }
 
-  validatePlayerTurn(playerId, card) {
+  validatePlayerTurn(playerId, card = null) {
     const player = this.getPlayerById(playerId);
     const cardStackCount = this.cardStack.length;
     const lastCard = this.cardStack[cardStackCount - 1];
     if (player.id !== this.activePlayerId) {
       return false;
     }
-    if (!player.cards.find(cardOnHand => 
-      JSON.stringify(cardOnHand) === JSON.stringify(card))) {
-      return false;
-    }
-    if (cardStackCount > 0 && 
-        (card.figure !== lastCard.figure && card.color !== lastCard.color )) {
-      return false;
-    }
-    if (cardStackCount === 1 && this.players.length === 1) {
-      return false;
+    if (card) {
+      if (!player.cards.find(cardOnHand => isEqual(card, cardOnHand))) {
+        return false;
+      }
+      if (cardStackCount > 0 && 
+          (card.figure !== lastCard.figure && card.color !== lastCard.color )) {
+        return false;
+      }
     }
     return true;
   }
