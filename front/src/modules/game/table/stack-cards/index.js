@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import Card from '../../own-player/card';
 import './style.css';
 
@@ -18,12 +17,4 @@ class StackCards extends PureComponent {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(StackCards);
+export default StackCards;

@@ -9,7 +9,7 @@ class Deck extends PureComponent {
     const { onPullCard } = this.props;
     return (
       <div >
-        <div className="deck" color="Pull card" onClick={() => onPullCard()}>
+        <div className="deck" color="Pull card" onClick={onPullCard}>
           Pull card
         </div>
       </div>
@@ -21,8 +21,8 @@ const mapStateToProps = (state) => ({
 
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onPullCard: () => dispatch(pullCard())
-});
+const mapDispatchToProps = {
+  onPullCard: pullCard
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Deck);
