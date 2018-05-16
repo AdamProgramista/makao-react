@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import StartGame from './start-game';
 import './style.css';
 
 class GameInfo extends PureComponent {
   render() {
-    const { players } = this.props;
+    const { players, status } = this.props;
     return (
       <div className='game__info'>
         <div className='game__info__header'>
@@ -15,13 +16,17 @@ class GameInfo extends PureComponent {
             <li key={player.name}>{player.name}</li>
           ))}
         </ul>)}
+        {(status === "waiting") && (
+          <StartGame />
+        )}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  players: state.game.players
+  players: state.game.players,
+  status: state.game.status
 });
 
 const mapDispatchToProps = (dispatch) => ({
