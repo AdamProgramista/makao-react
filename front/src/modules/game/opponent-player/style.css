@@ -1,11 +1,10 @@
 .game__playground__opponentplayer {
   position: absolute;
-  top: 70px;
-  left: -33px;
+  top: 7rem;
+  left: -3.3rem;
   border: 1px solid black;
   width: 12rem;
   height: 6rem;
-  /* transform: rotate(-90deg) */
 }
 
 .game__playground__opponentplayer__name {

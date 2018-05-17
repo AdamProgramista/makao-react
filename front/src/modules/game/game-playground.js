@@ -11,8 +11,6 @@ class GamePlayground extends PureComponent {
     return (
       <div className='game__playground'>
         <Table />
-        {/* <div className='game__playground__view'>
-        </div> */}
         <OwnPlayer />
       </div>
     );

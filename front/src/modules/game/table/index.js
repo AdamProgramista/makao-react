@@ -22,13 +22,19 @@ class Table extends PureComponent {
                 const y = Math.sin(degrees * Math.PI / 180) / 2;
                 return (
                   <div>
-                    <div key={index} className='game__playground__table__opponent' style={{
-                      left: Math.floor(x * 110) + 50 + '%',
-                      top: Math.floor(y * 110) + 50 + '%',
-                      transform: `translate(-50%, -50%) rotate(${degrees-90}deg)`
-                    }}>
+                    <div 
+                      key={index} 
+                      className='game__playground__table__opponent' 
+                      style={{
+                        left: Math.floor(x * 110) + 50 + '%',
+                        top: Math.floor(y * 110) + 50 + '%',
+                        transform: `translate(-50%, -50%) rotate(${degrees-90}deg)`
+                      }}>
                       <FaUser />
-                      <OpponentPlayer name={players[index].name} cardsCount={players[index].cardsCount}/>
+                      <OpponentPlayer 
+                        name={players[index].name} 
+                        cardsCount={players[index].cardsCount}
+                      />
                     </div>
                   </div>
                 );
