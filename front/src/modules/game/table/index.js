@@ -2,18 +2,20 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import './style.css';
 import OpponentPlayer from '../opponent-player';
+import StackCards from './stack-cards';
+import Deck from './deck';
 import { FaUser } from 'react-icons/lib/fa';
 
 class Table extends PureComponent {
 
   render() {
-    const { players } = this.props;
+    const { players, cardStack } = this.props;
     const PLAYERS_COUNT = players.length;
     const STEP = 360 / PLAYERS_COUNT;
 
     return (
       <div className='game__playground__table' >
-        {<div style={{ position: 'relative' }} className='game__playground__table' >
+        <div style={{ position: 'relative' }} className='game__playground__table' >
           <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
             {
               Array.from({ length: PLAYERS_COUNT }, (_, index) => {
@@ -41,14 +43,19 @@ class Table extends PureComponent {
               })
             }
           </div>
-        </div>}
+          {cardStack.length > 0 && (
+            <StackCards cardStack={cardStack} />
+          )}
+          <Deck />
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  players: state.game.players
+  players: state.game.players,
+  cardStack: state.game.cardStack
 });
 
 const mapDispatchToProps = (dispatch) => ({
