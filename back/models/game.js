@@ -48,8 +48,8 @@ class Game {
       return false;
     }
     return true;
-    }
   }
+  
 
   addPlayer(player) {
     const playerCards = this.getCardsFromDeck(5);
