@@ -30,6 +30,27 @@ class Game {
     this.activePlayerId = this.players[nextPlayerIndex].id;
   }
 
+  validatePlayerTurn(playerId, card = null) {
+    const player = this.getPlayerById(playerId);
+    const cardStackCount = this.cardStack.length;
+    const lastCard = this.cardStack[cardStackCount - 1];
+    if (player.id !== this.activePlayerId) {
+      return false;
+    }
+    if (!card) {
+      return true;
+    }
+    if (!player.cards.find(cardOnHand => isEqual(card, cardOnHand))) {
+      return false;
+    }
+    if (cardStackCount > 0 && 
+        (card.figure !== lastCard.figure || card.color !== lastCard.color)) {
+      return false;
+    }
+    return true;
+    }
+  }
+
   addPlayer(player) {
     const playerCards = this.getCardsFromDeck(5);
     this.players.push(player);
@@ -67,4 +88,4 @@ const GAME_STATUS = {
 
 const game = new Game();
 
-module.exports = { game };
+module.exports = { game, GAME_STATUS };
