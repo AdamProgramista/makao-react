@@ -40,16 +40,15 @@ class Game {
     if (!card) {
       return true;
     }
-    if (!player.cards.find(cardOnHand => isEqual(card, cardOnHand))) {
+    if (!player.cards.some(cardOnHand => isEqual(card, cardOnHand))) {
       return false;
     }
     if (cardStackCount > 0 && 
-        (card.figure !== lastCard.figure || card.color !== lastCard.color)) {
+        (card.figure !== lastCard.figure && card.color !== lastCard.color)) {
       return false;
     }
     return true;
   }
-  
 
   addPlayer(player) {
     const playerCards = this.getCardsFromDeck(5);
