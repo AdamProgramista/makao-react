@@ -28,8 +28,8 @@ const mapStateToProps = (state) => ({
     
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onJoinPlayer: () => dispatch(joinPlayer())
-});
+const mapDispatchToProps = {
+  onJoinPlayer: joinPlayer
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Join);

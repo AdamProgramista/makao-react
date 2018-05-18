@@ -5,11 +5,13 @@ import {
   JOIN_PLAYER_SUCCESS,
   FETCH_GAME_DETAILS,
   PUT_CARD,
+  PULL_CARD,
   fetchGameDetails,
   fetchGameDetailsSuccess,
   fetchGameDetailsFailure,
   joinPlayerSuccess,
   joinPlayerFailure,
+  pullCardSuccess,
   putCardSuccess
 } from './index.js';
 import * as gameApi from '../../api/game.js';
@@ -19,6 +21,7 @@ export default function* () {
   yield takeLatest(JOIN_PLAYER_SUCCESS, onGetGameDetails);
   yield takeLatest(FETCH_GAME_DETAILS, onFetchGameDetails);
   yield takeEvery(PUT_CARD, onPutCard);
+  yield takeEvery(PULL_CARD, onPullCard)
 };
 
 function* onJoinPlayer(action) {
@@ -53,6 +56,16 @@ function* onPutCard(action) {
   const { payload } = action;
   try {
     yield call(gameApi.putCard, payload);
+    yield put(putCardSuccess());
+  } catch (error){
+
+  }
+};
+
+function* onPullCard(action) {
+  console.log('pulled')
+  try {
+    yield call(gameApi.pullCard);
   } catch (error){
 
   }

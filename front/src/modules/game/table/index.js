@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import StackCards from './stack-cards';
+import Deck from './deck';
 import './style.css';
 
 class Table extends PureComponent {
 
   render() {
-    const { players } = this.props;
+    const { players, cardStack } = this.props;
     const PLAYERS_COUNT = players.length;
     const STEP = 360 / PLAYERS_COUNT;
 
@@ -35,13 +37,18 @@ class Table extends PureComponent {
             }
           </div>
         </div>}
+        {cardStack.length > 0 && (
+          <StackCards cardStack={cardStack} />
+        )}
+        <Deck />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  players: state.game.players
+  players: state.game.players,
+  cardStack: state.game.cardStack
 });
 
 const mapDispatchToProps = (dispatch) => ({

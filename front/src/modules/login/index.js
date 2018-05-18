@@ -46,8 +46,8 @@ const mapStateToProps = (state) => ({
 
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onLogIn: (name) => dispatch(logIn(name))
-});
+const mapDispatchToProps = {
+  onLogIn: logIn
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
