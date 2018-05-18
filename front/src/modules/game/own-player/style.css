@@ -1,10 +1,16 @@
 .game__playground__ownplayer {
   height: 20%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 48rem;
+  left: 24rem;
 }
 
 .game__playground__ownplayer__name {
   font-size: 2rem;
   text-align: center;
+  margin-right: 2rem;
 }
 
 .game__playground__ownplayer__cards {

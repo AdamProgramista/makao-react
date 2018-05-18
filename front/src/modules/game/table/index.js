@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import './style.css';
+import OpponentPlayer from '../opponent-player';
 import StackCards from './stack-cards';
 import Deck from './deck';
-import './style.css';
+import { FaUser } from 'react-icons/lib/fa';
 
 class Table extends PureComponent {
 
@@ -13,7 +15,7 @@ class Table extends PureComponent {
 
     return (
       <div className='game__playground__table' >
-        {<div style={{ position: 'relative' }} className='game__playground__table' >
+        <div style={{ position: 'relative' }} className='game__playground__table' >
           <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
             {
               Array.from({ length: PLAYERS_COUNT }, (_, index) => {
@@ -21,26 +23,31 @@ class Table extends PureComponent {
                 const x = Math.cos(degrees * Math.PI / 180) / 2;
                 const y = Math.sin(degrees * Math.PI / 180) / 2;
                 return (
-                  <div key={index} style={{
-                    position: 'absolute',
-                    width: 50,
-                    height: 50,
-                    left: Math.floor(x * 100) + 50 + '%',
-                    top: Math.floor(y * 100) + 50 + '%',
-                    backgroundColor: 'red',
-                    borderRadius: '50%',
-                    transform: 'translateX(-50%) translateY(-50%)'
-                  }
-                  } />
+                  <div>
+                    <div 
+                      key={index} 
+                      className='game__playground__table__opponent' 
+                      style={{
+                        left: Math.floor(x * 110) + 50 + '%',
+                        top: Math.floor(y * 110) + 50 + '%',
+                        transform: `translate(-50%, -50%) rotate(${degrees-90}deg)`
+                      }}>
+                      <FaUser />
+                      <OpponentPlayer 
+                        name={players[index].name} 
+                        cardsCount={players[index].cardsCount}
+                      />
+                    </div>
+                  </div>
                 );
               })
             }
           </div>
-        </div>}
-        {cardStack.length > 0 && (
-          <StackCards cardStack={cardStack} />
-        )}
-        <Deck />
+          {cardStack.length > 0 && (
+            <StackCards cardStack={cardStack} />
+          )}
+          <Deck />
+        </div>
       </div>
     );
   }

@@ -12,16 +12,6 @@ class GamePlayground extends PureComponent {
     return (
       <div className='game__playground'>
         <Table />
-        <div className='game__playground__view'>
-          {players.map(player => (
-            <OpponentPlayer
-              key={player.id}
-              name={player.name} />
-          ))}
-        </div>
-        {(status === "waiting") && (
-          <StartGame />
-        )}
         <OwnPlayer />
       </div>
     );
@@ -30,7 +20,6 @@ class GamePlayground extends PureComponent {
 
 const mapStateToProps = (state) => ({
   players: state.game.players,
-  status: state.game.status
 });
 
 const mapDispatchToProps = (dispatch) => ({
