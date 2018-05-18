@@ -37,16 +37,18 @@ class Game {
     if (player.id !== this.activePlayerId) {
       return false;
     }
-    if (card) {
-      if (!player.cards.find(cardOnHand => isEqual(card, cardOnHand))) {
-        return false;
-      }
-      if (cardStackCount > 0 && 
-          (card.figure !== lastCard.figure && card.color !== lastCard.color )) {
-        return false;
-      }
+    if (!card) {
+      return true;
+    }
+    if (!player.cards.find(cardOnHand => isEqual(card, cardOnHand))) {
+      return false;
+    }
+    if (cardStackCount > 0 && 
+        (card.figure !== lastCard.figure || card.color !== lastCard.color)) {
+      return false;
     }
     return true;
+    }
   }
 
   addPlayer(player) {
@@ -86,4 +88,4 @@ const GAME_STATUS = {
 
 const game = new Game();
 
-module.exports = { game };
+module.exports = { game, GAME_STATUS };
