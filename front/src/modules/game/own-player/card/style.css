@@ -18,3 +18,8 @@
 .card__color {
   font-size: 1.2rem;
 }
+
+.red {
+  border: 1px red solid;
+  color: red;
+}
