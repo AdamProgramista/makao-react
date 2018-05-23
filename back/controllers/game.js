@@ -1,11 +1,11 @@
-const { Player } =  require('../models/player');
+const { Player } = require('../models/player');
 const { game, GAME_STATUS } = require('../models/game');
 
 const join = (req, res) => {
   const user = req.session.user;
   const existingPlayer = game.getPlayerById(user.id);
   if (existingPlayer) {
-    res.send({player: existingPlayer});
+    res.send({ player: existingPlayer });
     return;
   }
   if (game.status === GAME_STATUS.inProgress) {
@@ -14,7 +14,7 @@ const join = (req, res) => {
   }
   const player = new Player(user);
   game.addPlayer(player);
-  res.send({player});
+  res.send({ player });
 };
 
 const status = (req, res) => {
@@ -40,8 +40,8 @@ const putCard = (req, res) => {
     res.status(403).send('Invalid turn');
     return;
   }
-  game.putCard(playerId, card);
-  res.send();
+  const message = game.putCard(playerId, card);
+  res.send({ message });
 }
 
 const pullCard = (req, res) => {
