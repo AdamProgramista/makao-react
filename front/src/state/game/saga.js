@@ -21,7 +21,7 @@ export default function* () {
   yield takeLatest(JOIN_PLAYER_SUCCESS, onGetGameDetails);
   yield takeLatest(FETCH_GAME_DETAILS, onFetchGameDetails);
   yield takeEvery(PUT_CARD, onPutCard);
-  yield takeEvery(PULL_CARD, onPullCard)
+  yield takeEvery(PULL_CARD, onPullCard);
 };
 
 function* onJoinPlayer(action) {
@@ -38,7 +38,7 @@ function* onJoinPlayer(action) {
 function* onGetGameDetails() {
   while (true) {
     yield put(fetchGameDetails());
-    yield delay(1000);
+    yield delay(50);
   }
 };
 
@@ -55,15 +55,14 @@ function* onFetchGameDetails() {
 function* onPutCard(action) {
   const { payload } = action;
   try {
-    yield call(gameApi.putCard, payload);
-    yield put(putCardSuccess());
+    const message = yield call(gameApi.putCard, payload);
+    yield put(putCardSuccess(message));
   } catch (error){
 
   }
 };
 
 function* onPullCard(action) {
-  console.log('pulled')
   try {
     yield call(gameApi.pullCard);
   } catch (error){

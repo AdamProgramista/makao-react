@@ -1,4 +1,4 @@
-import { post, toJSON } from '../utils/request.js';
+import { post, toJSON, get } from '../utils/request.js';
 
 export const joinPlayerToGame = () => post(
   'http://localhost:8080/game/join'

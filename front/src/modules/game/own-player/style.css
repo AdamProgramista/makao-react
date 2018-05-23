@@ -7,10 +7,16 @@
   left: 24rem;
 }
 
-.game__playground__ownplayer__name {
+.game__playground__ownplayer__name,
+.game__playground__ownplayer__name__active {
   font-size: 2rem;
   text-align: center;
   margin-right: 2rem;
+}
+
+.game__playground__ownplayer__name__active {
+  color: rgba(71, 209, 71, 0.8);
+  font-weight: bold;
 }
 
 .game__playground__ownplayer__cards {
@@ -18,4 +24,3 @@
   display: flex;
   justify-content: center;
 }
-

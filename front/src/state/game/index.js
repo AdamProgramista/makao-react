@@ -42,6 +42,12 @@ export const gameReducer = handleActions({
     activePlayer: payload.activePlayerId,
     cardStack: payload.cardStack,
     playerCards: payload.playerCards
+  }),
+
+  [PUT_CARD_SUCCESS] : (state, { payload }) => ({
+    ...state,
+    message: payload.message,
+    freezeCounter: payload.freezeCounter
   })
 
 }, initialState);
@@ -63,7 +69,12 @@ export const putCard = createAction(
   PUT_CARD,
   card => card
 );
-export const putCardSuccess = createAction(PUT_CARD_SUCCESS);
+
+export const putCardSuccess = createAction(PUT_CARD_SUCCESS,
+  message => message,
+  freezeCounter => freezeCounter
+);
+
 export const putCardFailure = createAction(PUT_CARD_FAILURE);
 export const pullCard = createAction(PULL_CARD);
 export const pullCardSuccess = createAction(PULL_CARD_SUCCESS);
